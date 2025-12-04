@@ -23,16 +23,22 @@
 	</properties>
 
 	<dependencies>
-		<!-- Spring Cloud Gateway MVC (la correcta) -->
+		<!-- Spring Cloud Gateway Reactivo -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
 
-		<!-- Eureka Client -->
+		<!-- Eureka Client (excluyendo ribbon que ya no se usa) -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Actuator -->
